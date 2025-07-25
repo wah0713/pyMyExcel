@@ -5,10 +5,11 @@ import openpyxl
 
 def read(file_name):
     wd= openpyxl.load_workbook(file_name)
-    ws=wd.active
+    ws= wd.active
     for row in ws.iter_rows(values_only=True):
         for cell in row:
-            print(f'{cell.value:<10}')
+            print(f'{cell:<10}',end='\t')
+        print('')
 
 if __name__ == "__main__":
     read(ensure_xlsx_suffix(sys.argv[1]))
