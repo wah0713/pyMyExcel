@@ -1,5 +1,6 @@
 import sys
 import openpyxl
+from tools import ensure_xlsx_suffix
 
 
 def parse_arguments():
@@ -13,12 +14,12 @@ def parse_arguments():
         print("到 B.xlsx 工作表的 'Sheet' 表 E 列从第5行开始写入")
 
     return {
-        "source_file": sys.argv[1],
+        "source_file": ensure_xlsx_suffix(sys.argv[1]),
         "source_sheet": sys.argv[2],
         "source_col": sys.argv[3].upper(),  # 转换为大写字母
         "start_row": int(sys.argv[4]),
         "end_row": int(sys.argv[5]),
-        "target_file": sys.argv[6],
+        "target_file": ensure_xlsx_suffix(sys.argv[6]),
         "target_sheet": sys.argv[7],
         "target_col": sys.argv[8].upper(),  # 转换为大写字母
         "target_start_row": int(sys.argv[9]),
@@ -80,4 +81,4 @@ def copy_excel_data(params):
 if __name__ == "__main__":
     params = parse_arguments()
     copy_excel_data(params)
-# py copy_excel_data.py A.xlsx Sheet a 1 2 B.xlsx Sheet e 5
+# py src/copy_excel_data.py A.xlsx Sheet1 a 1 2 B.xlsx Sheet1 e 5

@@ -4,7 +4,7 @@ import openpyxl
 
 
 def read(file_name):
-    wd= openpyxl.load_workbook(file_name)
+    wd= openpyxl.load_workbook(ensure_xlsx_suffix(file_name))
     ws= wd.active
     for row in ws.iter_rows(values_only=True):
         for cell in row:
@@ -12,4 +12,4 @@ def read(file_name):
         print('')
 
 if __name__ == "__main__":
-    read(ensure_xlsx_suffix(sys.argv[1]))
+    read(sys.argv[1])

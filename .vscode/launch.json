@@ -11,7 +11,7 @@
             "program": "src/open.py",
             "console": "integratedTerminal",
             "args": [
-                "src/a.xlsx"
+                "a.xlsx"
             ]
         },
         {
@@ -21,7 +21,25 @@
             "program": "src/read.py",
             "console": "integratedTerminal",
             "args": [
-                "src/a.xlsx"
+                "a.xlsx"
+            ]
+        },
+        {
+            "name": "copy_excel_data",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "src/copy_excel_data.py",
+            "console": "integratedTerminal",
+            "args": [
+                "A.xlsx",
+                "Sheet1",
+                "a",
+                "1",
+                "2",
+                "B.xlsx",
+                "Sheet1",
+                "e",
+                "5"
             ]
         },
     ]
